@@ -1,0 +1,79 @@
+import React from "react";
+import Animate from "../components/Animate";
+import  { ArrowRight } from "lucide-react";
+const floatingdishes = [
+  {
+    src: "/assets/dish1.png",
+    alt: "dish1",
+    className: "top-6 left-4 md:top-10 md:left-[6%] lg:left-[10%]",
+  },
+  {
+    src: "/assets/dish2.png",
+    alt: "dish2",
+    className: "bottom-6 left-6 md:bottom-10 md:left-[10%] lg:left-[14%]",
+  },
+  {
+    src: "/assets/dish3.png",
+    alt: "dish3",
+    className: "top-6 right-4 md:top-10 md:right-[6%] lg:right-[10%]",
+  },
+  {
+    src: "/assets/dish4.png",
+    alt: "dish4",
+    className: "bottom-6 right-6 md:bottom-10 md:right-[10%] lg:right-[14%]",
+  },
+];
+
+const Cta = () => {
+  return (
+    <section
+      id="cta"
+      className="relative overflow-hidden bg-orange-500 px-6 
+ flex flex-col justify-center items-center min-h-100 md:min-h-110 mt-44"
+    >
+      {/* Call to Action */}
+
+      <div className="absolute inset-0 w-full max-w-7xl mx-auto pointer-events-none">
+        {floatingdishes.map((dish) => (
+          <img
+            key={dish.src}
+            src={dish.src}
+            alt={dish.alt}
+            className={`absolute size-20 md:size-28 lg:size-35 rounded-full object-cover 
+            pointer-events-auto transition-all duration-300 hover:scale-105  ${dish.className}`}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-100 text-center max-w-2xl mx-auto">
+        <Animate>
+          <h1 className="text-3xl md:text-[40px] font-medium text-white font-urbanist text-balance">
+            Every Meal Is Made To Be Remembered
+          </h1>
+        </Animate>
+        <Animate y={20} delay={0.2}>
+          <p className="mt-4 text-white max-w-sm mx-auto ">
+            Join us for the ingredients, signature recipes and an unforgetable
+            dining experience.
+          </p>
+        </Animate>
+        <Animate delay={0.2} className="flex items-center justify-center">
+          <a
+            href="#booking-process"
+            className=" flex items-center gap-2.5 bg-white text-black pl-5 pr-2 py-2 rounded-full mt-5.5 transition"
+          >
+            Book Your Table
+          
+           <span className="size-7 rounded-full bg-black text-white grid place-content-center">
+            <ArrowRight size={16} />
+          </span>
+
+          </a>
+         
+        </Animate>
+      </div>
+    </section>
+  );
+};
+
+export default Cta;
